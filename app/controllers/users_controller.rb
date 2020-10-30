@@ -5,4 +5,8 @@ class UsersController < ApplicationController
 
   def friends
   end
+
+  def search
+    render json: params[:q]
+  end
 end

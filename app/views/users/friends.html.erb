@@ -1,3 +1,23 @@
+<h1>Friends</h1>
+
+<div class="pt-5">
+  <h3>Search Friends</h3>
+  <%= form_tag search_friends_path, remote: true, method: :get do %>
+    <div class="form-group row">
+      <div class="col-sm-9">
+        <div class="input-group">
+          <%= text_field_tag :q, params[:q], placeholder: "Search friends", autofocus: true, class: "form-control form-control-lg" %>
+          <div class="input-group-append">
+            <%= button_tag type: :submit, class: "btn btn-success" do %>
+              <%= fa_icon "search 2x" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <div class="row">
   <div class="col-sm-9">
     <table class="table table-bordered table-hover table-dark">
