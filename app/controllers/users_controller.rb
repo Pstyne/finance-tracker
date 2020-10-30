@@ -8,14 +8,14 @@ class UsersController < ApplicationController
 
   def search
     if params[:q].present?
-      @friend = params[:q]
-      if @friend
+      @friends = User.search(params[:q])
+      if @friends.any?
         respond_to do |format|
           format.js { render partial: "users/friend_result" }
         end
       else
         respond_to do |format|
-          flash.now[:alert] = "Counldn't find user"
+          flash.now[:alert] = "Couldn't find user"
           format.js { render partial: "users/friend_result" }
         end
       end
