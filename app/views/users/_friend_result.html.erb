@@ -8,7 +8,11 @@
             <td><strong>Email: </strong><%= friend.email %></td>
             <td>
               <%= link_to "View Profile", "#", class: "btn btn-sm btn-success" %>
-              <%= link_to "Follow", "#", class: "btn btn-sm btn-success", method: :post %>
+              <% unless current_user.friends_with?(friend.id) %>
+                <%= link_to "Follow", "#", class: "btn btn-sm btn-success", method: :post %>
+              <% else %>
+                <%= link_to "Unfollow", "#", class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
             </td>
           </tr>
         <% end %>
