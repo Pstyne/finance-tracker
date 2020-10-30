@@ -17,30 +17,6 @@
     </div>
   <% end %>
 </div>
-
-<div class="row">
-  <div class="col-sm-9">
-    <table class="table table-bordered table-hover table-dark">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Friends</th>
-          <th scope="col">Stocks</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_user.friends.each do |friend| %>
-          <tr>
-            <th scope="row"><%= friend.full_name %></th>
-            <td><%= friend.email %></td>
-            <td>Has <%= pluralize(friend.friends.count, "friend") %></td>
-            <td>Tracking <%= pluralize(friend.stocks.count, "stock") %></td>
-            <td><%= link_to "Stop Following", "#", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-warning" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div class="mb-3" id="results">
 </div>
+<%= render 'friends/list' %>

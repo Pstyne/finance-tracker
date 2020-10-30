@@ -1,0 +1,8 @@
+<% if @friend %>
+  <div class="card card-header d-inline-block">
+    <strong>Email: </strong><%= @friend %>
+    <strong>Name: </strong><%= @friend %>
+    <strong>Last Price: </strong><%= @friend %>
+    <%= link_to "Follow", "#", class: "btn btn-success", method: :post %>
+  </div>  
+<% end %>
